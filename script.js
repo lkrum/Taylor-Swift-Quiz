@@ -25,12 +25,14 @@ function countdown() {
     if (secondsLeft > 1) {
       timeEl.textContent = secondsLeft + " seconds left";
       secondsLeft--;
-    } if (wrongAnswer) {
-      secondsLeft -10;
-      timeEl.textContent = secondsLeft + " seconds left";
-    } else if (secondsLeft === 1) {
+    // } if (wrongAnswer) {
+    //   secondsLeft -10;
+    //   timeEl.textContent = secondsLeft + " seconds left";
+    } if (secondsLeft === 1) {
       timeEl.textContent = secondsLeft + " second left";
-    } else {
+      secondsLeft--;
+    } else if (secondsLeft === 0) {
+      timeEl.textContent = '';
       clearInterval(timerInterval);
     }
   }, 1000);
