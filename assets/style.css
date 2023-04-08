@@ -9,12 +9,11 @@ header {
   padding-bottom: 10px;
   width: auto;
   border-bottom: #eed1a2 10px solid;
-  margin-bottom: 60px;
 }
 
 header p {
   padding-top: 10px;
-  font-size: 16px;
+  font-size: 19px;
 
 }
 
@@ -23,13 +22,19 @@ h1 {
   font-family: "Lucida Handwriting", cursive, serif;
 }
 
+#timer {
+  padding-left: 50px;
+  padding-top: 10px;
+  font-size: 30px;
+
+}
+
 .question {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  border: 5px #913580 solid;
   padding: 20px;
-  margin: 50px 300px 10px 400px;
+  margin: 10px 300px 10px 300px;
 }
 
 .question h2 {
@@ -47,7 +52,8 @@ h1 {
 }
 
 li {
-  padding: 2px;
+  padding: 10px;
+  background: #913580;
 }
 
 footer {
