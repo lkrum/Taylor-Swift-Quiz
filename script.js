@@ -12,8 +12,26 @@
 
 // variables
 var timeEl;
+var answerChoiceEl;
 var question;
-var answer;
+var userAnswer
+var choiceResponse;
+
+// Question  1 variables
+var questOneOptions = ["13", "10", "3", "21"]
+
+// Question 1 function
+var questOneChoice = function () {
+  if (questOneChoice.includes("13"))
+    choiceResponse.textContent = "Correct!";
+  else {
+    choiceResponse.textContent = "Wrong!";
+
+}
+}
+
+questOneChoice();
+
 var correct = ["13", "Folklore", "boyfriend", "Speak Now", "All Too Well (10 Minute Version)"]
 
 // timer
@@ -26,7 +44,7 @@ function countdown() {
     if (secondsLeft > 1) {
       timeEl.textContent = secondsLeft + " seconds left";
       secondsLeft--;
-    } if (answer === false) {
+    } if (answerChoiceEl !== correct) {
       secondsLeft - 10;
       timeEl.textContent = secondsLeft + " seconds left";
     } if (secondsLeft === 1) {
@@ -42,14 +60,30 @@ function countdown() {
 countdown();
 
 // question function
-var answerEl = document.getElementById("answer");
+var answerChoiceEl = document.getElementsByTagName("li");
+var choiceResponse = document.getElementsByClassName("choice-response");
+answerChoiceEl.addEventListener('click', function())
 
-function startQuiz() {
-  if (correct.includes(answer)) {
-    answerEl.textContent = "Correct!";
-  } else {
-    answerEl.textContent = "Wrong!"
-  }
-}
+//   for (var x = 0; x < answerEl.length; x++)) {
+   
+  
+  
+  
+//   if (userAnswer === ) {
+//       choiceResponse.textContent = "Correct!";
+//     } else {
+//       choiceResponse.textContent = "Wrong!";
+      
+// }
+// })
 
-startQuiz();
+// console.log(answerChoiceEl[0]);
+
+
+
+// button function
+
+// console.log(answerEl)
+// for (var x = 0; x < answerEl.length; x++) {
+//   // answerEl.addEventListener("click", myFunction() {
+//   answerEl.textContent = "Correct!";
