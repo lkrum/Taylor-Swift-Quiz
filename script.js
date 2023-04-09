@@ -13,7 +13,8 @@
 // variables
 var timeEl;
 var question;
-var wrongAnswer;
+var answer;
+var correct = ["13", "Folklore", "boyfriend", "Speak Now", "All Too Well (10 Minute Version)"]
 
 // timer
 var timeEl = document.getElementById("timer");
@@ -25,9 +26,9 @@ function countdown() {
     if (secondsLeft > 1) {
       timeEl.textContent = secondsLeft + " seconds left";
       secondsLeft--;
-    // } if (wrongAnswer) {
-    //   secondsLeft -10;
-    //   timeEl.textContent = secondsLeft + " seconds left";
+    } if (answer === false) {
+      secondsLeft - 10;
+      timeEl.textContent = secondsLeft + " seconds left";
     } if (secondsLeft === 1) {
       timeEl.textContent = secondsLeft + " second left";
       secondsLeft--;
@@ -41,3 +42,15 @@ function countdown() {
 countdown();
 
 // questions
+var answerEl = document.getElementById("answer");
+
+
+function quiz() {
+  if (correct.includes(answer)) {
+    answerEl.textContent = "Correct!";
+  } else {
+    answerEl.textContent = "Wrong!"
+  }
+}
+
+quiz();

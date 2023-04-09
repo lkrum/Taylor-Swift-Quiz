@@ -30,17 +30,14 @@ h1 {
 }
 
 .question {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   padding: 20px;
   margin: 10px 300px 10px 300px;
 }
 
 .question h2 {
-  text-align: center;
-  display: block;
+  text-align: left;
   font-size: 28px;
+  padding-left: 45px;
 }
 
 .question ol {
@@ -48,12 +45,27 @@ h1 {
   font-size: 20px;
   list-style-type: circle;
   padding: 10px;
-  padding-right: 300px;
+  padding-right: 500px;
+  padding-left: 20px;
+}
+
+.answer {
+  position: relative;
+  border-top: 3px #913580 solid;
+  font-size: 25px;
+  padding-top: 10px;
 }
 
 li {
+  display: block;
+  color: white;
+  font-weight: 540;
   padding: 10px;
-  background: #913580;
+  padding-left: 15px;
+  background-color: #913580;
+  border-radius: 10px;
+  margin-left: 30px;
+  line-height: 25px;
 }
 
 footer {
