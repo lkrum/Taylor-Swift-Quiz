@@ -58,14 +58,18 @@ h1 {
 
 li {
   display: block;
-  color: white;
-  font-weight: 540;
+  color: black;
+  font-weight: 640;
   padding: 10px;
   padding-left: 15px;
-  background-color: #913580;
+  background-color: #d7e9ff;
   border-radius: 10px;
   margin-left: 30px;
   line-height: 25px;
+}
+
+li:hover {
+  background-color: #02a1cf;
 }
 
 footer {

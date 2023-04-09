@@ -41,11 +41,10 @@ function countdown() {
 
 countdown();
 
-// questions
+// question function
 var answerEl = document.getElementById("answer");
 
-
-function quiz() {
+function startQuiz() {
   if (correct.includes(answer)) {
     answerEl.textContent = "Correct!";
   } else {
@@ -53,4 +52,4 @@ function quiz() {
   }
 }
 
-quiz();
+startQuiz();
