@@ -62,35 +62,23 @@ h2 {
   padding-left: 45px;
 }
 
- ol {
-  text-align: left;
-  font-size: 20px;
-  list-style-type: circle;
-  padding: 10px;
-  padding-right: 500px;
-  padding-left: 20px;
-}
-
 .answer {
   position: relative;
   border-top: 5px #913580 solid;
   font-size: 25px;
   padding-top: 10px;
 }
-
-li {
-  display: block;
+.answer-selection {
   color: black;
   font-weight: 640;
   padding: 10px;
-  padding-left: 15px;
+  padding-right: 500px;
   background-color: #d7e9ff;
   border-radius: 10px;
-  margin-left: 30px;
   line-height: 25px;
 }
 
-li:hover {
+.answer-selection:hover {
   cursor: pointer;
   background-color: #02a1cf;
 }

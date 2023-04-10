@@ -9,135 +9,116 @@
 // WHEN the game is over
 // THEN I can save my initials and score
 
+// Selectors
+var timeEl = document.getElementById("timer");
+var questionEl = document.getElementById("question");
+var choicesConEl = document.getElementsByClassName("choices-container");
+
 // variables
-var timeEl;
+
 var answerChoiceEl;
-var currentQuestion = {};
-var userAnswer
-var choiceResponse;
 var score = 0
 var questionCounter = 0;
-var questionList = [];
+var secondsLeft = 5;
+var timerInterval;
+
 
 // array of questions and answers
 let questions = [
   {
     question: "What is Taylor's lucky number?",
-    choice1: "13",
-    choice2: "3",
-    choice3: "10",
-    choice4: "21",
-    answer: 1
+    choices: ["13", "3", "10", "21"],
+    answer: "13"
   },
   {
     question: "What was Taylor's first 2020 album?",
-    choice1: "Evermore",
-    choice2: "Folklore",
-    choice3: "Forevermore",
-    choice4: "Woodvale",
-    answer: 2
+    choices: ["Evermore", "Folklore", "Forevermore", "Woodvale"], 
+    answer: "Folklore"
   },
   {
     question: "Finish the lyric: 'Karma is my ...'",
-    choice1: "god",
-    choice2: "grammy",
-    choice3: "cat",
-    choice4: "boyfriend",
-    answer: 4
+    choices: ["god", "grammy", "cat", "boyfriend"],
+    answer: "boyfriend"
   },
   {
     question: "What is the name of Taylor's completely solo-written ablum?",
-    choice1: "Speak Now",
-    choice2: "Fearless",
-    choice3: "Midnights",
-    choice4: "Taylor Swift",
-    answer: 1
+    choices: ["Speak Now", "Fearless", "Midnights", "Taylor Swift"],
+    answer: "Speak Now"
   },
   {
     question: "Taylor wrote a short film for which song?",
-    choice1: "Love Story",
-    choice2: "Anti-hero",
-    choice3: "The Man",
-    choice4: "All Too Well (10 Minute Version)",
-    answer: 4
+    choices: ["Love Story", "Anti-Hero", "The Man", "All Too Well (10 Minute Version)"],
+    answer: "All Too Well (10 Minute Version)"
   },
 
 ]
 
-// Question  1 variables
-var questOneOptions = ["13", "10", "3", "21"]
-var question = document.getElementsByTagName("h2");
-console.log(question);
-var correct = ["13", "Folklore", "boyfriend", "Speak Now", "All Too Well (10 Minute Version)"]
+
 
 // // Game begins
-// var playGame() { 
+function renderQuestion() { 
+  var currentQuestion = questions[questionCounter];
+  questionEl.textContent = currentQuestion.question;
+  
+  choicesConEl.innerHTML = "";
+  
 
-// Question 1 function
-// var questOneChoice = function () {
-//   if (questOneChoice ("13"))
+  for (let i = 0; i < currentQuestion.choices.length; i++) {
+    var choiceBtn = document.createElement("button");
+    choiceBtn.textContent = currentQuestion.choices[i];
+    choicesConEl.append(choiceBtn);
+  }
+
+  
+//     if (userChoice === questions[0].choices[0]) {
 //     choiceResponse.textContent = "Correct!";
-//   else {
+//   } else {
 //     choiceResponse.textContent = "Wrong!";
-
+//   } if (userChoice === questions[1].choices[1]) { 
+//       choiceResponse.textContent = "Correct!";
+//   } else {
+//       choiceResponse.textContent = "Wrong!";
+//   } if (userChoice === questions[2].choices[3]) {
+//       choiceResponse.textContent = "Correct!";
+//   } else {
+//       choiceResponse.textContent = "Wrong!";
+//   } if (userChoice === questions[3].choices[0]) {
+//         choiceResponse.textContent = "Correct!";
+//   } else {
+//         choiceResponse.textContent = "Wrong!";
+//   } if (userChoice === questions[5].choices[3]) {
+//     choiceResponse.textContent = "Correct!";
+//   } else {
+//     choiceResponse.textContent = "Wrong!";
 // }
+}
 
+function checkAnswer(){
 
-
-
+}
 
 // timer
-var timeEl = document.getElementById("timer");
+
 
 // timer function
-function countdown() {
-  var secondsLeft = 60;
-  var timerInterval = setInterval(function () {
-    if (secondsLeft > 1) {
-      timeEl.textContent = secondsLeft + " seconds left";
+ function countdown() {
+ 
+  timerInterval = setInterval(function () {
+     timeEl.textContent = secondsLeft + " seconds left";
       secondsLeft--;
-    } if (answerChoiceEl !== correct) {
-      secondsLeft - 10;
-      timeEl.textContent = secondsLeft + " seconds left";
-    } if (secondsLeft === 1) {
-      timeEl.textContent = secondsLeft + " second left";
-      secondsLeft--;
-    } else if (secondsLeft === 0) {
-      timeEl.textContent = '';
-      clearInterval(timerInterval);
+      if (secondsLeft <= 0) {
+        endGame();
     }
   }, 1000);
+  renderQuestion()
 }
 
 countdown();
 
-// question function
-var questionEl = document.getElementsByClassName("question")
-var answerChoiceEl = document.getElementsByTagName("li");
-var choiceResponseEl = Array.from(document.getElementsByClassName("choice-response"));
-console.log(choiceResponseEl)
-// answerChoiceEl.addEventListener('click', function())
 
-//   for (var x = 0; x < answerEl.length; x++)) {
-   
+function endGame(){
+  timeEl.textContent = '';
+  clearInterval(timerInterval);
+}
   
-  
-  
-//   if (userAnswer === ) {
-//       choiceResponseEl.textContent = "Correct!";
-//     } else {
-//       choiceResponseEl.textContent = "Wrong!";
-      
-// }
-// })
-
-// console.log(answerChoiceEl[0]);
-
-
-
-// button function
-
-// console.log(answerEl)
-// for (var x = 0; x < answerEl.length; x++) {
-//   // answerEl.addEventListener("click", myFunction() {
-//   answerEl.textContent = "Correct!";
+    
