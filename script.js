@@ -19,7 +19,7 @@ var choicesConEl = document.getElementsByClassName("choices-container");
 var answerChoiceEl;
 var score = 0
 var questionCounter = 0;
-var secondsLeft = 5;
+var secondsLeft = 3;
 var timerInterval;
 
 
@@ -53,8 +53,6 @@ let questions = [
 
 ]
 
-
-
 // // Game begins
 function renderQuestion() { 
   var currentQuestion = questions[questionCounter];
@@ -66,7 +64,7 @@ function renderQuestion() {
   for (let i = 0; i < currentQuestion.choices.length; i++) {
     var choiceBtn = document.createElement("button");
     choiceBtn.textContent = currentQuestion.choices[i];
-    choicesConEl.append(choiceBtn);
+    choicesConEl.appendChild(choiceBtn);
   }
 
   
@@ -104,10 +102,15 @@ function checkAnswer(){
  function countdown() {
  
   timerInterval = setInterval(function () {
-     timeEl.textContent = secondsLeft + " seconds left";
+     
+    if (secondsLeft > 1) {
+      timeEl.textContent = secondsLeft + " seconds remaining";
       secondsLeft--;
-      if (secondsLeft <= 0) {
-        endGame();
+    } else if (secondsLeft === 1) {
+      timeEl.textContent = secondsLeft + ' second remaining';
+      secondsLeft--;
+    } else {
+        endGame(); 
     }
   }, 1000);
   renderQuestion()
