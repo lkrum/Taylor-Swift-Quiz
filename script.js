@@ -1,9 +1,3 @@
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over
 // WHEN the game is over
@@ -13,16 +7,15 @@
 var timeEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var choicesConEl = document.querySelector(".choices-container");
+var answerValEl = document.getElementById("answer-validation");
 
 // variables
 
 var answerChoiceEl;
-var score = 0
 var questionCounter = 0;
-var secondsLeft = 10;
+var secondsLeft = 60;
 var timerInterval;
-
-
+var q;
 
 // array of questions and answers
 let questions = [
@@ -54,18 +47,34 @@ let questions = [
 
 ]
 
-// // start game function
-// startQuiz() {
-//   questionCounter = 0;
-//   score = 0;
-//   renderQuestion();
-// }
+// function to start game
+  questionCounter = 0;
+
+function renderQuestion() {
+
+  var q = questions[questionCounter];
+  questionEl.textContent = q.question;
+
+  choicesConEl.innerHTML = "";
+
+// loop to create buttons
+  for (let i = 0; i < q.choices.length; i++) {
+    var answerBtn = document.createElement("button");
+    answerBtn.textContent = q.choices[i];
+    answerBtn.setAttribute("value", q.choices[i]);
+    choicesConEl.appendChild(answerBtn);
+  }
+}
+
+// function to check answers
 
 function checkAnswer(event) {
-  if (event.target.tagName == 'BUTTON') {
+  let correctAnswer = questions[questionCounter].answer;
+  if (event.target.tagName == 'BUTTON') 
+  // answer validation
+  { 
     var button = event.target;
-    console.log(button.value);
-    if (button.value == questions[questionCounter].answer) {
+    if (button.value == questions[questionCounter]) {
       var qs = document.getElementsByTagName("button");
       for (let j = 0; j < qs.length; j++) {
         qs[j].parentNode.removeChild(qs[j]);
@@ -78,25 +87,18 @@ function checkAnswer(event) {
       questionCounter++;
       renderQuestion();
     } 
+  } if (button.value == correctAnswer) {
+    answerValEl.textContent = "Correct!";
+
+  } else {
+    secondsLeft -= 10;
+    answerValEl.textContent = "Wrong!";
+
+  } if (secondsLeft == 0 || questionCounter == questions.length) {
+    endGame();
+    
   }
-}
-
-// get new questions function
-function renderQuestion() {
-
-  var q = questions[questionCounter];
-  questionEl.textContent = q.question;
-
-  choicesConEl.innerHTML = "";
-
-  // create buttons
-  for (let i = 0; i < q.choices.length; i++) {
-    var answerBtn = document.createElement("button");
-    answerBtn.textContent = q.choices[i];
-    answerBtn.setAttribute("value", q.choices[i]);
-    choicesConEl.appendChild(answerBtn);
-  }
-
+    
 }
 
 renderQuestion();
@@ -115,6 +117,7 @@ function countdown() {
       timeEl.textContent = secondsLeft + ' second remaining';
       secondsLeft--;
     } else {
+      clearInterval(timerInterval);
       endGame();
     }
   }, 1000);
@@ -123,9 +126,10 @@ function countdown() {
 
 countdown();
 
-
+// end game function
 function endGame() {
   timeEl.textContent = '';
   clearInterval(timerInterval);
 }
+
 
