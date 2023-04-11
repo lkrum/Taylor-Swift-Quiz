@@ -12,7 +12,7 @@
 // Selectors
 var timeEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
-var choicesConEl = document.getElementsByClassName("choices-container");
+var choicesConEl = document.querySelector(".choices-container");
 
 // variables
 
@@ -21,6 +21,7 @@ var score = 0
 var questionCounter = 0;
 var secondsLeft = 3;
 var timerInterval;
+
 
 
 // array of questions and answers
@@ -53,46 +54,55 @@ let questions = [
 
 ]
 
-// // Game begins
+// // start game function
+// startQuiz() {
+//   questionCounter = 0;
+//   score = 0;
+//   renderQuestion();
+// }
+
+// get new questions function
 function renderQuestion() { 
+  
   var currentQuestion = questions[questionCounter];
   questionEl.textContent = currentQuestion.question;
   
   choicesConEl.innerHTML = "";
   
-
   for (let i = 0; i < currentQuestion.choices.length; i++) {
-    var choiceBtn = document.createElement("button");
-    choiceBtn.textContent = currentQuestion.choices[i];
-    choicesConEl.appendChild(choiceBtn);
+    var answerBtn = document.createElement("button");
+    answerBtn.textContent = currentQuestion.choices[i];
+    choicesConEl.appendChild(answerBtn);
   }
-
-  
-//     if (userChoice === questions[0].choices[0]) {
-//     choiceResponse.textContent = "Correct!";
-//   } else {
-//     choiceResponse.textContent = "Wrong!";
-//   } if (userChoice === questions[1].choices[1]) { 
-//       choiceResponse.textContent = "Correct!";
-//   } else {
-//       choiceResponse.textContent = "Wrong!";
-//   } if (userChoice === questions[2].choices[3]) {
-//       choiceResponse.textContent = "Correct!";
-//   } else {
-//       choiceResponse.textContent = "Wrong!";
-//   } if (userChoice === questions[3].choices[0]) {
-//         choiceResponse.textContent = "Correct!";
-//   } else {
-//         choiceResponse.textContent = "Wrong!";
-//   } if (userChoice === questions[5].choices[3]) {
-//     choiceResponse.textContent = "Correct!";
-//   } else {
-//     choiceResponse.textContent = "Wrong!";
-// }
 }
+  // startQuiz();
+  // renderQuestion();
+
+
+
 
 function checkAnswer(){
-
+    if (userChoice === questions[0].choices[0]) {
+    choiceResponse.textContent = "Correct!";
+  } else {
+    choiceResponse.textContent = "Wrong!";
+  } if (userChoice === questions[1].choices[1]) { 
+      choiceResponse.textContent = "Correct!";
+  } else {
+      choiceResponse.textContent = "Wrong!";
+  } if (userChoice === questions[2].choices[3]) {
+      choiceResponse.textContent = "Correct!";
+  } else {
+      choiceResponse.textContent = "Wrong!";
+  } if (userChoice === questions[3].choices[0]) {
+        choiceResponse.textContent = "Correct!";
+  } else {
+        choiceResponse.textContent = "Wrong!";
+  } if (userChoice === questions[5].choices[3]) {
+    choiceResponse.textContent = "Correct!";
+  } else {
+    choiceResponse.textContent = "Wrong!";
+}
 }
 
 // timer

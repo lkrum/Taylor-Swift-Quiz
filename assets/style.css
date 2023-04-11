@@ -57,30 +57,24 @@ div {
 }
 
 h2 {
-  text-align: left;
+  text-align: center;
   font-size: 28px;
-  padding-left: 45px;
 }
 
-.answer {
-  position: relative;
-  border-top: 5px #913580 solid;
-  font-size: 25px;
-  padding-top: 10px;
-}
-.answer-selection {
+button {
+  font-size: 19px;
   color: black;
-  font-weight: 640;
+  font-weight: 500;
   padding: 10px;
-  padding-right: 500px;
+  padding-right: 400px;
   background-color: #d7e9ff;
   border-radius: 10px;
   line-height: 25px;
 }
 
-.answer-selection:hover {
+button:hover {
   cursor: pointer;
-  background-color: #02a1cf;
+  background-color: rgb(108, 223, 255);
 }
 
 footer {
