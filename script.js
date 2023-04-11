@@ -19,7 +19,7 @@ var choicesConEl = document.querySelector(".choices-container");
 var answerChoiceEl;
 var score = 0
 var questionCounter = 0;
-var secondsLeft = 3;
+var secondsLeft = 10;
 var timerInterval;
 
 
@@ -33,7 +33,7 @@ let questions = [
   },
   {
     question: "What was Taylor's first 2020 album?",
-    choices: ["Evermore", "Folklore", "Forevermore", "Woodvale"], 
+    choices: ["Evermore", "Folklore", "Forevermore", "Woodvale"],
     answer: "Folklore"
   },
   {
@@ -61,58 +61,69 @@ let questions = [
 //   renderQuestion();
 // }
 
+function checkAnswer(event) {
+  if (event.target.tagName == 'BUTTON') {
+    var button = event.target;
+    console.log(button.value);
+    if (button.value == questions[questionCounter].answer) {
+      console.log("correct");
+      var qs = document.getElementsByTagName("button");
+      for (let j = 0; j < qs.length; j++) {
+        qs[j].parentNode.removeChild(qs[j]);
+      }
+      if (questionCounter < questions.length - 1) {
+        questionCounter++;
+        renderQuestion();
+      }
+
+    }
+  }
+
+
+}
+
 // get new questions function
-function renderQuestion() { 
-  
-  var currentQuestion = questions[questionCounter];
-  questionEl.textContent = currentQuestion.question;
-  
+function renderQuestion() {
+
+  var q = questions[questionCounter];
+  questionEl.textContent = q.question;
+
   choicesConEl.innerHTML = "";
-  
-  for (let i = 0; i < currentQuestion.choices.length; i++) {
+
+  // create buttons
+  for (let i = 0; i < q.choices.length; i++) {
     var answerBtn = document.createElement("button");
-    answerBtn.textContent = currentQuestion.choices[i];
+    answerBtn.textContent = q.choices[i];
+    answerBtn.setAttribute("value", q.choices[i]);
     choicesConEl.appendChild(answerBtn);
   }
-}
-  // startQuiz();
-  // renderQuestion();
 
-
-
-
-function checkAnswer(){
-    if (userChoice === questions[0].choices[0]) {
-    choiceResponse.textContent = "Correct!";
-  } else {
-    choiceResponse.textContent = "Wrong!";
-  } if (userChoice === questions[1].choices[1]) { 
-      choiceResponse.textContent = "Correct!";
-  } else {
-      choiceResponse.textContent = "Wrong!";
-  } if (userChoice === questions[2].choices[3]) {
-      choiceResponse.textContent = "Correct!";
-  } else {
-      choiceResponse.textContent = "Wrong!";
-  } if (userChoice === questions[3].choices[0]) {
-        choiceResponse.textContent = "Correct!";
-  } else {
-        choiceResponse.textContent = "Wrong!";
-  } if (userChoice === questions[5].choices[3]) {
-    choiceResponse.textContent = "Correct!";
-  } else {
-    choiceResponse.textContent = "Wrong!";
-}
 }
 
-// timer
+renderQuestion();
+document.addEventListener("click", checkAnswer);
+
+// var answerButtons = document.getElementsByClassName("answerButton");
+// for (let i = 0; i < answerButtons.length; i++) {
+//   var btn = answerButtons[i];
+//   btn.addEventListener("click", function () { 
+//     console.log("hello");
+//   });
+//   // answerButtons[i].addEventListener("click", checkAnswer, false);
+
+// }
+
+// var userChoice = function chooseAnswer() {
+// answerBtn.addEventListener("click", chooseAnswer());
+// if (userChoice === currentQuestion.choices[0]) {
+// choiceResponse.textContent = "Correct!";
 
 
 // timer function
- function countdown() {
- 
+function countdown() {
+
   timerInterval = setInterval(function () {
-     
+
     if (secondsLeft > 1) {
       timeEl.textContent = secondsLeft + " seconds remaining";
       secondsLeft--;
@@ -120,7 +131,7 @@ function checkAnswer(){
       timeEl.textContent = secondsLeft + ' second remaining';
       secondsLeft--;
     } else {
-        endGame(); 
+      endGame();
     }
   }, 1000);
   renderQuestion()
@@ -129,9 +140,8 @@ function checkAnswer(){
 countdown();
 
 
-function endGame(){
+function endGame() {
   timeEl.textContent = '';
   clearInterval(timerInterval);
 }
-  
-    
+
