@@ -13,6 +13,7 @@ var answerValEl = document.getElementById("answer-validation");
 
 var answerChoiceEl;
 var questionCounter = 0;
+var score = 0;
 var secondsLeft = 60;
 var timerInterval;
 var q;
@@ -58,6 +59,7 @@ function renderQuestion() {
   choicesConEl.innerHTML = "";
 
 // loop to create buttons
+// loop was created with the help of Chris Barcal
   for (let i = 0; i < q.choices.length; i++) {
     var answerBtn = document.createElement("button");
     answerBtn.textContent = q.choices[i];
@@ -67,7 +69,7 @@ function renderQuestion() {
 }
 
 // function to check answers
-
+// function was created with the help of Chris Barcal
 function checkAnswer(event) {
   let correctAnswer = questions[questionCounter].answer;
   if (event.target.tagName == 'BUTTON') 
@@ -82,23 +84,20 @@ function checkAnswer(event) {
     if (questionCounter < questions.length - 1) {
         questionCounter++;
         renderQuestion();
-      }
-    } else {
+    }} else {
       questionCounter++;
       renderQuestion();
     } 
   } if (button.value == correctAnswer) {
     answerValEl.textContent = "Correct!";
-
   } else {
     secondsLeft -= 10;
     answerValEl.textContent = "Wrong!";
 
   } if (secondsLeft == 0 || questionCounter == questions.length) {
     endGame();
-    
   }
-    
+
 }
 
 renderQuestion();
@@ -127,9 +126,22 @@ function countdown() {
 countdown();
 
 // end game function
+var userInitials;
 function endGame() {
   timeEl.textContent = '';
   clearInterval(timerInterval);
+  return window.location.replace("./highscores.html");
 }
 
+// get high scores 
+var scoreConEl = document.getElementById("scores-container");
+var scoreListEl = document.createElement("ol");
+var scoreListUser = document.createElement("li");
+scoreConEl.appendChild(scoreListEl);
+scoreListEl.appendChild(scoreListUser);
 
+localStorage.setItem("userinitials", userInitials);
+localStorage.setItem("highscore", secondsLeft);
+
+
+scoreListUser.textContent = userInitials + secondsLeft; 
