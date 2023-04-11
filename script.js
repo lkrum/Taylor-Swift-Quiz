@@ -66,20 +66,19 @@ function checkAnswer(event) {
     var button = event.target;
     console.log(button.value);
     if (button.value == questions[questionCounter].answer) {
-      console.log("correct");
       var qs = document.getElementsByTagName("button");
       for (let j = 0; j < qs.length; j++) {
         qs[j].parentNode.removeChild(qs[j]);
       }
-      if (questionCounter < questions.length - 1) {
+    if (questionCounter < questions.length - 1) {
         questionCounter++;
         renderQuestion();
       }
-
-    }
+    } else {
+      questionCounter++;
+      renderQuestion();
+    } 
   }
-
-
 }
 
 // get new questions function
@@ -102,21 +101,6 @@ function renderQuestion() {
 
 renderQuestion();
 document.addEventListener("click", checkAnswer);
-
-// var answerButtons = document.getElementsByClassName("answerButton");
-// for (let i = 0; i < answerButtons.length; i++) {
-//   var btn = answerButtons[i];
-//   btn.addEventListener("click", function () { 
-//     console.log("hello");
-//   });
-//   // answerButtons[i].addEventListener("click", checkAnswer, false);
-
-// }
-
-// var userChoice = function chooseAnswer() {
-// answerBtn.addEventListener("click", chooseAnswer());
-// if (userChoice === currentQuestion.choices[0]) {
-// choiceResponse.textContent = "Correct!";
 
 
 // timer function
