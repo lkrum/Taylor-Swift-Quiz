@@ -3,7 +3,11 @@
 ## Description
 I've created a short quiz on Taylor Swift that will test your knowledge of her music and life. The quiz is set on a 60-second timer. Wrong answers will get 10 seconds subtracted from the time. 
 
-Link to live page: 
+![Home](./assets/images/main.png)
+![Question](./assets/images/question.png)
+![HighScores](./assets/images/highscores.png)
+
+Link to live page: https://lkrum.github.io/Taylor-Swift-Quiz/
 
 ## Installation
 N/A
