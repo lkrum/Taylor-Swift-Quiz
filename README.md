@@ -19,6 +19,8 @@ Click the "Play" button in the home.html file. Click on the answer choice you th
 
 - [W3schools](https://www.w3schools.com/jsref/met_loc_assign.asp
 - [W3schools]https://www.w3schools.com/jsref/event_target.asp)
+- [W3schools](https://www.w3schools.com/tags/tag_input.asp)
+- [W3schools](https://www.w3schools.com/tags/tag_button.asp)
 - Diem, one of the class TAs, helped me format my questions array
 - Negin, one of the class TAs, helped me troubleshoot my functions
 - A friend Chris Bartal helped me formulate my for loops and functions for my buttons to work. 

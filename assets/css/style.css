@@ -84,7 +84,6 @@ h1 {
 
 div {
   padding: 20px;
-  margin: 10px 300px 10px 300px;
 }
 
 h2 {
@@ -93,11 +92,13 @@ h2 {
 }
 
 button {
+  display: block;
+  position: relative;
   font-size: 19px;
   color: black;
   font-weight: 500;
   padding: 10px;
-  padding-right: 400px;
+  padding-right: 400px; 
   background-color: #d7e9ff;
   border-radius: 10px;
   line-height: 25px;
@@ -108,6 +109,12 @@ button:hover {
   background-color: rgb(108, 223, 255);
 }
 
+.choices-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  
+}
 #scores-container {
   display: flex;
   justify-content: center;
