@@ -84,7 +84,8 @@ function checkAnswer(event) {
     if (questionCounter < questions.length - 1) {
         questionCounter++;
         renderQuestion();
-    }} else {
+    } 
+  } else {
       questionCounter++;
       renderQuestion();
     } 
@@ -94,10 +95,9 @@ function checkAnswer(event) {
     secondsLeft -= 10;
     answerValEl.textContent = "Wrong!";
 
-  } if (secondsLeft == 0 || questionCounter == questions.length) {
+  } if ((secondsLeft == 0) || (questionCounter > questions.length - 1)) {
     endGame();
-  }
-
+  } 
 }
 
 renderQuestion();
