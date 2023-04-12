@@ -23,6 +23,7 @@ Click the "Play" button in the home.html file. Click on the answer choice you th
 - Negin, one of the class TAs, helped me troubleshoot my functions
 - A friend Chris Bartal helped me formulate my for loops and functions for my buttons to work. 
 - Faran Navazi, one of the official bootcamp tutors, helped me make my code more concise.
+- Will Lord helped me troubleshoot why my last question button wasn't working and he finally got it to work by moving it to the start of the checkAnswer function
 
 ## License
 MIT License
