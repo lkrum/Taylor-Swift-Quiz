@@ -61,10 +61,6 @@ h1 {
   font-size: 30px;
   color: rgb(0, 0, 0);
   font-weight: 300;
-  border-top: #000000 solid 2px;
-  width: 50%; 
-  margin-left: 450px;
-  text-align: center;
   padding: 20px;
 }
 
@@ -84,6 +80,8 @@ h1 {
 
 div {
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 h2 {
@@ -94,14 +92,14 @@ h2 {
 button {
   display: block;
   position: relative;
-  font-size: 19px;
+  font-size: 29px;
   color: black;
   font-weight: 500;
   padding: 10px;
-  padding-right: 400px; 
   background-color: #d7e9ff;
   border-radius: 10px;
   line-height: 25px;
+  width: 500px;
 }
 
 button:hover {
@@ -111,9 +109,16 @@ button:hover {
 
 .choices-container {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  width: 20%;
   justify-content: center;
+}
+#answer-container {
+text-align: center;
+border-top: #000000 solid 2px;
+width: 100%;
   
+
 }
 #scores-container {
   display: flex;

@@ -22,7 +22,7 @@ Click the "Play" button in the home.html file. Click on the answer choice you th
 - [W3schools](https://www.w3schools.com/tags/tag_input.asp)
 - [W3schools](https://www.w3schools.com/tags/tag_button.asp)
 - Diem, one of the class TAs, helped me format my questions array
-- Negin, one of the class TAs, helped me troubleshoot my functions
+- Negin, one of the class TAs, helped me troubleshoot my functions and center my question and answer button text.
 - A friend Chris Bartal helped me formulate my for loops and functions for my buttons to work. 
 - Faran Navazi, one of the official bootcamp tutors, helped me make my code more concise.
 - Will Lord helped me troubleshoot why my last question button wasn't working and he finally got it to work by moving it to the start of the checkAnswer function
