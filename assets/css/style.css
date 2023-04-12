@@ -47,10 +47,14 @@ h1 {
   padding-right: 0;
   display:flex;
   justify-content:center ;
-  background-color: #bb5c85;
+  background-color: #b382c4;
   margin: 40px 300px;
   border-radius: 10px;
 
+}
+
+#home:hover {
+  background-color: #88529a;
 }
 
 #answer-validation {
@@ -104,19 +108,30 @@ button:hover {
   background-color: rgb(108, 223, 255);
 }
 
-#high-scores {
-  position: relative;
-  font-size: 30px;
-  color: rgb(0, 0, 0);
-  font-weight: 300;
-  padding: 20px;
-  padding-left: 0;
-  padding-right: 0;
+#scores-container {
   display: flex;
   justify-content: center;
-  background-color: #bb5c85;
-  margin: 4px 500px;
+
+}
+
+#high-scores {
+  position: relative;
+  font-size: 40px;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  margin-top: 100px;
+  padding: 20px 200px 300px 200px;
+  background-color: #b382c4;
   border-radius: 10px;
+}
+
+#user-initials {
+  position: absolute;
+  background-color: #c8c8c8;
+  text-align: center;
+  font-size: 30px;
+  border: #bb5c85 solid 4px;
+  margin: 20px;
 }
 
 footer {
